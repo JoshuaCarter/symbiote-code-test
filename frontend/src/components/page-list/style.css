@@ -1,0 +1,24 @@
+.page-list {
+	min-width: 25%;
+	min-height: 100%;
+}
+
+.link-page {
+	color: cornflowerblue;
+}
+.link-page:hover {
+	color: rgb(85, 124, 197);
+}
+.link-page:active {
+	color: rgb(176, 204, 255);
+}
+
+.link-add {
+	color: orange;
+}
+.link-add:hover {
+	color: rgb(194, 126, 0);
+}
+.link-add:active {
+	color: rgb(255, 186, 58);
+}

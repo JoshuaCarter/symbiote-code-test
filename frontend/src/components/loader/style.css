@@ -1,0 +1,41 @@
+/* src: https://www.w3schools.com/howto/howto_css_loader.asp */
+.loader {
+    border: 10px solid silver; /* Light grey */
+    border-top: 10px solid dodgerblue; /* Blue */
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+	animation: spin .5s linear infinite;
+	margin: 10px;
+}
+.loader-small {
+    border: 8px solid silver; /* Light grey */
+    border-top: 8px solid dodgerblue; /* Blue */
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+	animation: spin .5s linear infinite;
+	margin: 10px;
+}
+.loader-large {
+    border: 12px solid silver; /* Light grey */
+    border-top: 12px solid dodgerblue; /* Blue */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+	animation: spin .5s linear infinite;
+	margin: 10px;
+}
+.loader-tiny {
+    border: 4px solid silver; /* Light grey */
+    border-top: 4px solid dodgerblue; /* Blue */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+	animation: spin .5s linear infinite;
+	margin: 0;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

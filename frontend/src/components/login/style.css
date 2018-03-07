@@ -1,0 +1,5 @@
+.subtle {
+	font-size: .4em; /* not accurate due to auto h1 parent */
+	color: gray;
+	margin-bottom: 0;
+}

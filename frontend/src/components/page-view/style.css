@@ -1,0 +1,15 @@
+.page-view {
+	width: 100%;
+	min-height: 100%;
+}
+
+.button {
+	color: silver;
+}
+.button:hover {
+	color: white;
+}
+
+.mt-px {
+	margin-top: 1px;
+}

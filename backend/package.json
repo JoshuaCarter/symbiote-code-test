@@ -1,0 +1,19 @@
+{
+	"name": "Node.js",
+	"version": "1.0.0",
+	"description": "Node.js App",
+	"author": "joshua.carter.dev@gmail.com",
+	"license": "ISC",
+	"main": "app.js",
+	"scripts": {
+		"start": "nodemon app.js"
+	},
+	"devDependencies": {
+		"nodemon": "^1.17.1"
+	},
+	"dependencies": {
+		"cors": "^2.8.4",
+		"express": "^4.16.2",
+		"express-session": "^1.15.6"
+	}
+}
