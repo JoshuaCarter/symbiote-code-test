@@ -7,7 +7,7 @@ This is my submission for the Symbiote developer exercise.
 
 I took this challenge as an excuse to learn several new things. As a result, this challenge was as much a learning exercise as it was test, so I've spent more time on the project than is expected. I hope that the results justify the time expenditure.
 
-This is the first time I have used redux, express sessions, or done any user authentication. It is the second time that I have user react and nodejs. As a result, this was a sizeable undertaking for me, ultimately taking me ~30 hrs to complete in total.
+This is the first time I have used redux, express sessions, or done any user authentication. It is the second time that I have used react and nodejs. As a result, this was a sizeable undertaking for me, ultimately taking me ~30 hrs to complete in total.
 
 ---
 ## Tools Used
@@ -21,14 +21,14 @@ I opted to use a styling framework for this project for presentation's sake, and
 ##### NodeJs and Express
 I chose to use nodejs as part of my ongoing attempt to widen my skill set. An example of a PHP backend can be found [here](https://github.com/JoshuaCarter/sidekicker-code-test).
 
-##### axios, cors, express-session, redux-thunk.
-http client and middleware tools.
+##### Misc: axios, cors, express-session, redux-thunk.
+Http client and middleware tools.
 
 
 ---
 ## Running the Production Build
 - Pull this repo wherever you like.
-- Run `init.sh`. This will run `npm install` on the backend and frontend, and then build the react project using `npm run build`.
+- Run `init.sh`. This will run `npm install` on the backend/frontend, and then build the react project using `npm run build`.
 - Run `serve_nodejs.sh`. This will serve the nodejs project with nodemon.
 - Run `serve_react.sh`. This will serve the react build with npm.
 - Your browser should automatically open a new tab and navigate to the react build on `localhost:3000`.
