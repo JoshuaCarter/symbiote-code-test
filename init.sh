@@ -11,7 +11,7 @@ npm install
 #install frontend modules
 echo ""
 printf "$form" "$line" "Installing modules for frontend" "$line"
-cd frontend
+cd ../frontend
 npm install
 
 #build react
