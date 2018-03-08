@@ -5,7 +5,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 // bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
-
 // redux
 import { Provider } from 'react-redux';
 import store from './store.js'

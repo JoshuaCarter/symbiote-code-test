@@ -2,10 +2,10 @@ import axios from 'axios';
 
 // DEFAULT STATE
 const defaults = {
-	page_list: [],
-	page: null,
-	editing: false,
-	making: false,
+	page_list: [],		//list of page names
+	page: null,			//open page { title: string, content: string }
+	editing: false,		//flag to enable input fields
+	making: false,		//flag for new page (create vs update)
 
 	list_requested: false,
 	create_requested: false,
@@ -154,11 +154,13 @@ export function readPage(page) {
 			})
 			.catch((err) => {
 				dispatch({ type: 'READ_FAILURE' });
+				//no auth
 				if (err.response.status === 401) {
 					dispatch({ type: 'MODAL_OPEN' });
 				}
-				if (err.response.status === 404) {
-					//not found
+				//not found
+				else if (err.response.status === 404) {
+					console.log('Not found.');
 				}
 			});
 	};
@@ -175,6 +177,7 @@ export function createPage(title, content) {
 		};
 		axios.post('pages/' + title, data)
 			.then((res) => {
+				//created
 				if (res.status === 201) {
 					dispatch({ type: 'CREATE_SUCCESS' });
 					getPagesList()(dispatch);
@@ -182,11 +185,13 @@ export function createPage(title, content) {
 			})
 			.catch((err) => {
 				dispatch({ type: 'CREATE_FAILURE' });
+				//no auth
 				if (err.response.status === 401) {
 					dispatch({ type: 'MODAL_OPEN' });
 				}
+				//conflict
 				if (err.response.status === 409) {
-					//conflict
+					console.log('Conflict');
 				}
 			});
 	};
@@ -204,19 +209,24 @@ export function updatePage(page, title, content) {
 
 		axios.put('pages/' + page, data)
 			.then((res) => {
+				//updated
 				if (res.status === 200) {
 					dispatch({ type: 'UPDATE_SUCCESS' });
+					//reload page (hacky fix because defaultValue sucks)
 					readPage(title)(dispatch);
+					//reload page list
 					getPagesList()(dispatch);
 				}
 			})
 			.catch((err) => {
 				dispatch({ type: 'UPDATE_FAILURE' });
+				//no auth
 				if (err.response.status === 401) {
 					dispatch({ type: 'MODAL_OPEN' });
 				}
+				//not found
 				if (err.status === 404) {
-					//not found
+					console.log('Not found.');
 				}
 			});
 	};
@@ -229,18 +239,22 @@ export function deletePage(page) {
 
 		axios.delete('pages/' + page)
 			.then((res) => {
+				//deleted
 				if (res.status === 200) {
 					dispatch({ type: 'DELETE_SUCCESS' });
+					//reload page list
 					getPagesList()(dispatch);
 				}
 			})
 			.catch((err) => {
 				dispatch({ type: 'DELETE_FAILURE' });
+				//no auth
 				if (err.status === 401) {
 					dispatch({ type: 'MODAL_OPEN' });
 				}
+				//not found
 				if (err.status === 404) {
-					//not found
+					console.log('Not found.');
 				}
 			});
 	};

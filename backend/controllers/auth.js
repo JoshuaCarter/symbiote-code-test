@@ -1,6 +1,6 @@
 'use strict';
 
-exports.check = function (req, res) {
+exports.authcheck = function (req, res) {
 	console.log('auth check: ' + req.sessionID);
 
 	let auth = false;

@@ -1,6 +1,6 @@
 'use strict';
 
-//using session obj as global container for pages (kinda bad but fine for this)
+//using session obj as global container for pages (kinda bad but fine for this test)
 const session = require('express-session');
 
 const pagesDefault = {
@@ -29,7 +29,7 @@ exports.createPage = function (req, res) {
 	let title = req.body.title;
 	let content = req.body.content;
 
-	//page already exists
+	//page already exists (or no title/content)
 	if (!page || !title || !content || session.pages[page]) {
 		console.log('create page failure: ' + req.sessionID);
 
@@ -85,8 +85,8 @@ exports.updatePage = function (req, res) {
 	let title = req.body.title;
 	let content = req.body.content;
 
-	//page not found
-	if (!session.pages[page]) {
+	//page not found (or no title/content)
+	if (!title || !content || !session.pages[page]) {
 		console.log('update page failure: ' + req.sessionID);
 
 		res.statusCode = 404;
@@ -94,7 +94,7 @@ exports.updatePage = function (req, res) {
 		res.setHeader('Content-type', 'text/plain');
 		res.send("The requested page could not be found.");
 	}
-	//page updated
+	//page updated (replaced)
 	else {
 		console.log('update page success: ' + req.sessionID);
 

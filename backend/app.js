@@ -19,7 +19,7 @@ app.use(session({
 	saveUninitialized: true,
 	cookie: {
 		maxAge: 3600000, 		//last 1hr
-		secure: false 			//not https
+		secure: false 			//no ssl
 	}
 }));
 
@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 });
 
 //auth routes
-app.get('/authcheck', auth.check);
+app.get('/authcheck', auth.authcheck);
 app.post('/login', auth.login);
 app.post('/logout', auth.logout);
 

@@ -71,6 +71,7 @@ class PageList extends React.Component {
 
 	onPageSelect(e, page) {
 		if (!this.props.authorized) {
+			//need nested check this way to prevent stack overflow
 			if (!this.props.modal_open) {
 				this.props.openModal(() => {
 					this.onPageSelect(e, page);

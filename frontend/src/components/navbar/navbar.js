@@ -7,6 +7,7 @@ import auth from "../../reducers/auth";
 class NavBar extends Component {
 
 	componentWillMount() {
+		//on page load check auth (should probs relocate)
 		this.props.checkAuth();
 	}
 
@@ -17,6 +18,7 @@ class NavBar extends Component {
 				<NavbarBrand href="/">Symbiote</NavbarBrand>
 				<Nav className="ml-auto" navbar>
 					<NavItem>
+						{/* NOTICE ME SEMPAI */}
 						<NavLink href="http://www.joshuacarter.com.au" target="_blank">
 							Joshua Carter
 						</NavLink>

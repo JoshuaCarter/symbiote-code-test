@@ -36,11 +36,13 @@ class Login extends React.Component {
 	renderLogin() {
 		//logged in
 		if (this.props.authorized) {
+			//auto close modal after 1sec
 			setTimeout(() => {
 				if (this.props.modal_open) {
 					this.onBlur();
 				}
 			}, 1000);
+
 			return (
 				<div className="d-flex justify-content-center">
 					<FA name="check" size="5x" style={{ color: 'green' }}></FA>
@@ -80,6 +82,7 @@ class Login extends React.Component {
 	}
 
 	onBlur() {
+		//post login action
 		if (typeof this.props.on_authorized === 'function') {
 			this.props.on_authorized();
 		}
@@ -87,6 +90,7 @@ class Login extends React.Component {
 	}
 
 	onChange(e, prop) {
+		//store user/pass, shhh don't tell redux
 		this[prop] = e.target.value;
 	}
 

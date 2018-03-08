@@ -14,6 +14,7 @@ class PageView extends React.Component {
 	ele_content = null;
 
 	componentDidUpdate() {
+		//hacky way to load page data into page-view
 		if (this.props.page) {
 			this.ele_title.value = this.props.page.title;
 			this.ele_content.value = this.props.page.content;

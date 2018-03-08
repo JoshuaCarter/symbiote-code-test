@@ -5,8 +5,8 @@ const defaults = {
 	modal_open: false,
 	logging_in: false,
 	logging_out: false,
-	authorized: false,
-	on_authorized: null,
+	authorized: false,		//auth flag
+	on_authorized: null, 	//post login action
 }
 
 // REDUCER
@@ -50,12 +50,13 @@ export function checkAuth() {
 	return (dispatch) => {
 		axios.get('authcheck')
 			.then((res) => {
+				//got auth
 				if (res.status === 200) {
 					dispatch({ type: 'AUTH_CHECKED', payload: res.data.authorized });
 				}
 			})
 			.catch((err) => {
-
+				console.log(err.message);
 			});
 	};
 }
@@ -109,6 +110,7 @@ export function logout() {
 				//logout successful
 				if (res.status === 200) {
 					dispatch({ type: 'LOGOUT_SUCCESS' });
+					//hack to unload page and related flags
 					dispatch({ type: 'MAKE_CANCEL' });
 				}
 			})

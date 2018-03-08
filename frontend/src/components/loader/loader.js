@@ -14,7 +14,7 @@ class Loader extends React.Component {
 		if (this.props.tiny) {
 			return <div className="loader-tiny"></div>
 		}
-		if (this.props.small) {
+		else if (this.props.small) {
 			return <div className="loader-small"></div>
 		}
 		else if (this.props.large) {
